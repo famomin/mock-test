@@ -24,9 +24,10 @@ router.post('/create', function(req, res) {
 });
 
 router.post('/deleteperson', function(req, res) {
-  Book.destroy({
+  models.Person.destroy({
       where: {
-        name: req.body.name
+        id: req.body.id,
+        task: req.body.task,
       }
     }).then(function() {
     res.redirect('/');
